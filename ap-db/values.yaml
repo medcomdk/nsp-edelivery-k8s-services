@@ -8,7 +8,7 @@ service:
 
   image:
     repository: localhost:30500/ap_db
-    tag: "1"
+    tag: "2"
 
   serviceAccount:
     create: false
