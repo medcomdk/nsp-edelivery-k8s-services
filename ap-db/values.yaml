@@ -1,6 +1,6 @@
 mysql:
   namespace: "nsptest"
-  fullnameOverride: "db"
+  fullnameOverride: "ap_db_1"
   image:
     registry: "localhost:30500"
     repository: "ap_db"
