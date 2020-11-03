@@ -30,4 +30,15 @@ service:
     port: 8080
     targetPort: container-port
     
+  certificate:
+    ap.nsptest.medcom.dk:
+      namespace: nsptest
+      spec:
+        secretName: ap.nsptest.medcom.dk
+        issuerRef:
+          name: letsencrypt-prod
+          kind: ClusterIssuer
+          group: cert-manager.io
+        dnsNames:
+          - ap.nsptest.medcom.dk
 
