@@ -10,7 +10,7 @@ service:
     hosts:
       - host: ap.nsptest.medcom.dk
         paths:
-          - path: /
+          - path: /domibus
     tls:
       - hosts:
           - ap.nsptest.medcom.dk
