@@ -1,5 +1,5 @@
 service:
-  fullnameOverride: ap-db
+  fullnameOverride: db
   namespace: nsptest
   replicaCount: 1
 

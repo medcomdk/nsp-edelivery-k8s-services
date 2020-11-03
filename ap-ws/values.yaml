@@ -4,7 +4,17 @@ service:
   replicaCount: 1
 
   ingress:
-    enabled: false
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: ap.nsptest.medcom.dk
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - ap.nsptest.medcom.dk
+        secretName: ap.nsptest.medcom.dk
 
   image:
     repository: localhost:30500/ap_ws
