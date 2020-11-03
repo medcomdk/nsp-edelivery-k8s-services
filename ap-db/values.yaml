@@ -10,10 +10,8 @@ mysql:
   master:
     persistence:
       enabled: false
-  root:
-    password: "kuk"
+  existingSecret: "ap-db-secret"
   db:
-    user: "dsuser"
-    password: "ds1234"
-    name: "documentsources"
+    user: "ap"
+    name: "domibus_schema"
 
