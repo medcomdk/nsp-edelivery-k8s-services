@@ -1,0 +1,30 @@
+argoApps:
+  server: https://kubernetes.default.svc
+  repoUrl: https://github.com/medcomdk/nsp-edelivery-k8s-services
+
+  namespace: nsptest
+  project: nsp-edelivery-medcom
+  
+  projects:
+    nsp-edelivery-medcom:
+      description: NSP eDelivery Test
+      sources:
+        - https://github.com/medcomdk/nsp-edelivery-k8s-services
+      destinations:
+        - namespace: nsptest
+          server: https://kubernetes.default.svc
+        - namespace: argo
+          server: https://kubernetes.default.svc          
+      ignored:
+        - Secret
+        - Role
+        - RoleBinding
+      warnignored: true
+
+  applications:
+    ap-db:
+      path: ap-db
+      targetRevision: master
+      valueFiles:
+        - values.yaml
+

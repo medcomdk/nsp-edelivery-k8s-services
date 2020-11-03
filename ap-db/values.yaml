@@ -1,0 +1,21 @@
+service:
+  fullnameOverride: ap-db
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: false
+
+  image:
+    repository: localhost:30500/ap_db
+    tag: "1"
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 3306
+
+  service:
+    port: 3306
+    targetPort: container-port
