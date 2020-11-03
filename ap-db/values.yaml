@@ -19,3 +19,21 @@ service:
   service:
     port: 3306
     targetPort: container-port
+    
+  env:
+   MYSQL_DATABASE:
+      type: secretKeyRef
+      name: ap-db-secret
+      key: MYSQL_DATABASE
+   MYSQL_PASSWORD:
+      type: secretKeyRef
+      name: ap-db-secret
+      key: MYSQL_PASSWORD
+   MYSQL_ROOT_PASSWORD:
+      type: secretKeyRef
+      name: ap-db-secret
+      key: MYSQL_ROOT_PASSWORD
+   MYSQL_USER:
+      type: secretKeyRef
+      name: ap-db-secret
+      key: MYSQL_USER
