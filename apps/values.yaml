@@ -24,7 +24,7 @@ argoApps:
   applications:
     ap-db:
       path: ap-db
-      targetRevision: master
+      targetRevision: main
       valueFiles:
         - values.yaml
 

@@ -4,4 +4,4 @@ version: 1.0.0
 dependencies:
   - name: argoApps
     version: 1.0.0
-    repository: https://raw.githubusercontent.com/KvalitetsIT/helm-repo/master/
+    repository: https://raw.githubusercontent.com/KvalitetsIT/helm-repo/main/
