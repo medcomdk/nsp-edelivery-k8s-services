@@ -1,0 +1,40 @@
+service:
+  fullnameOverride: db
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: false
+
+  image:
+    repository: localhost:30500/ap_db
+    tag: "2"
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 3306
+    env:
+      MYSQL_DATABASE:
+        type: secretKeyRef
+        name: ap-db-secret
+        key: MYSQL_DATABASE
+      MYSQL_PASSWORD:
+        type: secretKeyRef
+        name: ap-db-secret
+        key: MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD:
+        type: secretKeyRef
+        name: ap-db-secret
+        key: MYSQL_ROOT_PASSWORD
+      MYSQL_USER:
+        type: secretKeyRef
+        name: ap-db-secret
+        key: MYSQL_USER
+        
+  service:
+    port: 3306
+    targetPort: container-port
+    
+
