@@ -28,3 +28,9 @@ argoApps:
       valueFiles:
         - values.yaml
 
+    ap-ws:
+      path: ap-ws
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+

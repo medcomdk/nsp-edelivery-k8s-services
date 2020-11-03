@@ -1,0 +1,23 @@
+service:
+  fullnameOverride: ap-ws
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: false
+
+  image:
+    repository: localhost:30500/ap_ws
+    tag: "2"
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 8080
+        
+  service:
+    port: 8080
+    targetPort: container-port
+    
+
