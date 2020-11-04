@@ -74,7 +74,8 @@ service:
         export CATALINA_TMPDIR=$CATALINA_HOME/tmp
         export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Xms128m -Xmx1024m "
         export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
-        sed -i 's/ap_db_1/ap-db/g' ./usr/local/tomcat/domibus/domibus.properties
+        echo "Customizing property files :-)"
+        sed -i 's/ap_db_1/ap-db/g' /usr/local/tomcat/domibus/domibus.properties
   service:
     port: 8080
     targetPort: container-port
