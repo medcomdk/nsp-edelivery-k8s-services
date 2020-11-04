@@ -29,6 +29,10 @@ service:
         setenv.sh:
             configMapMountPath: /usr/local/tomcat/bin/setenv.sh
             configMapMountSubPath: setenv.sh
+    hostAliases:
+      212.98.96.26:
+        - b-688bd8e9678ae0b24c1931eccf96d2d8.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
+        - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis3.dk.acc.edelivery.tech.ec.europa.eu
   extraConfigMap:
     setenv.sh: |
         #!/bin/sh
