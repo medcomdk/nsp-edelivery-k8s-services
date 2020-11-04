@@ -30,39 +30,6 @@ service:
             configMapMountPath: /usr/local/tomcat/bin/setenv.sh
             configMapMountSubPath: setenv.sh
   extraConfigMap:
-    server.xml: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <Server port="8005" shutdown="SHUTDOWN">
-        <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
-        <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
-        <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
-        <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
-        <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
-        <GlobalNamingResources>
-        <Resource name="UserDatabase" auth="Container"
-        type="org.apache.catalina.UserDatabase"
-        description="User database that can be updated and saved"
-        factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
-        pathname="conf/tomcat-users.xml" />
-        </GlobalNamingResources>
-        <Service name="Catalina">
-        <Connector port="8080" protocol="HTTP/1.1"
-        connectionTimeout="20000"
-        redirectPort="8443" />
-        <Engine name="Catalina" defaultHost="localhost">
-        <Realm className="org.apache.catalina.realm.LockOutRealm">
-        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
-        resourceName="UserDatabase"/>
-        </Realm>
-        <Host name="ap.nsptest.medcom.dk"  appBase="webapps"
-        unpackWARs="true" autoDeploy="true">
-        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
-        prefix="localhost_access_log" suffix=".txt"
-        pattern="%h %l %u %t &quot;%r&quot; %s %b" />
-        </Host>
-        </Engine>
-        </Service>
-        </Server>
     setenv.sh: |
         #!/bin/sh
         # Set CLASSPATH to include $CATALINA_HOME/domibus
@@ -71,7 +38,7 @@ service:
         export CATALINA_TMPDIR=$CATALINA_HOME/tmp
         export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Xms128m -Xmx1024m "
         export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
-        echo "Customizing property files :-)"
+        echo "Customizing domibus property files :-)"
         sed -i 's/ap_db_1/ap-db/g' /usr/local/tomcat/domibus/domibus.properties
   service:
     port: 8080
