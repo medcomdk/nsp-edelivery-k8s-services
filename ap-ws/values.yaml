@@ -26,9 +26,6 @@ service:
   deployment:
     containerPort: 8080
     configMapMountPaths:
-        DDSRepository.properties:
-            configMapMountPath: /usr/local/tomcat/conf/server.xml
-            configMapMountSubPath: server.xml
         setenv.sh:
             configMapMountPath: /usr/local/tomcat/bin/setenv.sh
             configMapMountSubPath: setenv.sh
