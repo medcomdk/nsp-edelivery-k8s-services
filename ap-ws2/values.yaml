@@ -1,0 +1,61 @@
+service:
+  fullnameOverride: ap-ws2
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: ap2.nsptest.medcom.dk
+        paths:
+          - path: /domibus
+    tls:
+      - hosts:
+          - ap2.nsptest.medcom.dk
+        secretName: ap2.nsptest.medcom.dk
+
+  image:
+    repository: localhost:30500/ap_ws
+    tag: "2"
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 8080
+    configMapMountPaths:
+        setenv.sh:
+            configMapMountPath: /usr/local/tomcat/bin/setenv.sh
+            configMapMountSubPath: setenv.sh
+    hostAliases:
+      212.98.96.26:
+        - b-688bd8e9678ae0b24c1931eccf96d2d8.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
+        - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis3.dk.acc.edelivery.tech.ec.europa.eu
+  extraConfigMap:
+    setenv.sh: |
+        #!/bin/sh
+        # Set CLASSPATH to include $CATALINA_HOME/domibus
+        # where the domibus 'domibus.config.properties’ is located
+        export CLASSPATH=$CATALINA_HOME/domibus
+        export CATALINA_TMPDIR=$CATALINA_HOME/tmp
+        export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Xms128m -Xmx1024m "
+        export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
+        echo "Customizing domibus property files :-)"
+        sed -i 's/ap_db_1/ap-db2/g' /usr/local/tomcat/domibus/domibus.properties
+  service:
+    port: 8080
+    targetPort: container-port
+    
+  certificate:
+    ap2.nsptest.medcom.dk:
+      namespace: nsptest
+      spec:
+        secretName: ap2.nsptest.medcom.dk
+        issuerRef:
+          name: letsencrypt-prod
+          kind: ClusterIssuer
+          group: cert-manager.io
+        dnsNames:
+          - ap2.nsptest.medcom.dk

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: ap-ws2
+version: 1.11.0
+dependencies:
+  - name: service
+    version: 1.11.0
+    repository: https://raw.githubusercontent.com/KvalitetsIT/helm-repo/master/

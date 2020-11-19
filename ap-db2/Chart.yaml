@@ -1,0 +1,7 @@
+apiVersion: v2
+name: ap-db2
+version: 6.14.11
+dependencies:
+  - name: mysql
+    version: 6.14.11
+    repository: https://charts.bitnami.com/bitnami

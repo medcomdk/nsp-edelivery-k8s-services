@@ -1,0 +1,19 @@
+mysql:
+  namespace: "nsptest"
+  fullnameOverride: "ap-db2"
+  image:
+    registry: "localhost:30500"
+    repository: "ap_db2"
+    tag: "2"
+  replication:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      storageClass: "applications"
+      size: "1Gi"
+  existingSecret: "ap-db-secret"
+  db:
+    user: "ap"
+    name: "domibus_schema"
+
