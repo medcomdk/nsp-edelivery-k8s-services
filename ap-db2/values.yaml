@@ -3,7 +3,7 @@ mysql:
   fullnameOverride: "ap-db2"
   image:
     registry: "localhost:30500"
-    repository: "ap_db2"
+    repository: "ap_db"
     tag: "2"
   replication:
     enabled: false
