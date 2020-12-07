@@ -8,13 +8,13 @@ service:
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - host: ap.nsptest.medcom.dk
+      - host: ap-dds.nsptest.medcom.dk
         paths:
           - path: /domibus
     tls:
       - hosts:
-          - ap.nsptest.medcom.dk
-        secretName: ap.nsptest.medcom.dk
+          - ap-dds.nsptest.medcom.dk
+        secretName: ap-dds.nsptest.medcom.dk
 
   image:
     repository: localhost:30500/ap_ws
@@ -52,10 +52,10 @@ service:
     ap.nsptest.medcom.dk:
       namespace: nsptest
       spec:
-        secretName: ap.nsptest.medcom.dk
+        secretName: ap-dds.nsptest.medcom.dk
         issuerRef:
           name: letsencrypt-prod
           kind: ClusterIssuer
           group: cert-manager.io
         dnsNames:
-          - ap.nsptest.medcom.dk
+          - ap-dds.nsptest.medcom.dk
