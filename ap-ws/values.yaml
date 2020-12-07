@@ -49,7 +49,7 @@ service:
     targetPort: container-port
     
   certificate:
-    ap.nsptest.medcom.dk:
+    ap-dds.nsptest.medcom.dk:
       namespace: nsptest
       spec:
         secretName: ap-dds.nsptest.medcom.dk
