@@ -36,6 +36,8 @@ service:
       extraVolumeMounts:
         keystore-dir:
           mountPath: /output
+        input-keys:
+          mountPath: /input
           
   deployment:
     containerPort: 8080
@@ -51,6 +53,9 @@ service:
   extraVolumes:
       keystore-dir: |
         emptyDir: {}
+      input-keys: |
+        secret:
+          secretName: ap-dds
 
   extraVolumeMounts:
       keystore-dir:
