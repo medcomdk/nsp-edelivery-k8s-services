@@ -31,7 +31,8 @@ service:
       commands:
           - bash
           - "-c"
-          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/ssi.crt -inkey /input/ssi.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias domibus"
+          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/tls.crt -inkey /input/tls.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias domibus"
+   
       extraVolumeMounts:
         keystore-dir:
           mountPath: /output
