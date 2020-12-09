@@ -22,7 +22,23 @@ service:
 
   serviceAccount:
     create: false
-
+    
+  initContainers:
+    keystorebuilder:
+      image:
+        repository: "openjdk"
+        tag: "11-jre-slim"
+      commands:
+          - bash
+          - "-c"
+          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/tls.crt -inkey /input/tls.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias domibus"
+   
+      extraVolumeMounts:
+        keystore-dir:
+          mountPath: /output
+        input-keys:
+          mountPath: /input
+          
   deployment:
     containerPort: 8080
     configMapMountPaths:
@@ -33,6 +49,17 @@ service:
       212.98.96.26:
         - b-688bd8e9678ae0b24c1931eccf96d2d8.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
         - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis3.dk.acc.edelivery.tech.ec.europa.eu
+        
+    extraVolumes:
+      keystore-dir: |
+        emptyDir: {}
+      input-keys: |
+        secret:
+          secretName: ap-gateway
+    extraVolumeMounts:
+      keystore-dir:
+        mountPath: /domibusconfig
+        
   extraConfigMap:
     setenv.sh: |
         #!/bin/sh
@@ -42,8 +69,12 @@ service:
         export CATALINA_TMPDIR=$CATALINA_HOME/tmp
         export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Xms128m -Xmx1024m "
         export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
-        echo "Customizing domibus property files :-)"
+        echo "Customizing domibus property file :-)"
         sed -i 's/ap_db_1/ap-db2/g' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks/' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=domibus/' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties         
   service:
     port: 8080
     targetPort: container-port
