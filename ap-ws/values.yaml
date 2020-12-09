@@ -72,10 +72,10 @@ service:
         export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
         echo "Customizing domibus property file :-)"
         sed -i 's/ap_db_1/ap-db/g' /usr/local/tomcat/domibus/domibus.properties
-        sed -ir "s/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks" /usr/local/tomcat/domibus/domibus.properties 
-        sed -ir "s/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234" /usr/local/tomcat/domibus/domibus.properties 
-        sed -ir "s/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=domibus" /usr/local/tomcat/domibus/domibus.properties 
-        sed -ir "s/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234" /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=domibus' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234' /usr/local/tomcat/domibus/domibus.properties 
   service:
     port: 8080
     targetPort: container-port
