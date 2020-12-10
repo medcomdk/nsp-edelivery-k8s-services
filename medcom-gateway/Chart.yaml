@@ -1,0 +1,7 @@
+apiVersion: v2
+name: medcom-gateway
+version: 1.12.1
+dependencies:
+  - name: service
+    version: 1.12.1
+    repository: https://raw.githubusercontent.com/KvalitetsIT/helm-repo/master/
