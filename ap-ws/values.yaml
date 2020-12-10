@@ -31,7 +31,7 @@ service:
       commands:
           - bash
           - "-c"
-          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/tls.crt -inkey /input/tls.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias domibus"
+          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/tls.crt -inkey /input/tls.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias \"medcom-edelivery-dds (funktionscertifikat)\""
    
       extraVolumeMounts:
         keystore-dir:
@@ -74,7 +74,7 @@ service:
         sed -i 's/ap_db_1/ap-db/g' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks/' /usr/local/tomcat/domibus/domibus.properties 
         sed -ir 's/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties 
-        sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=domibus/' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-dds (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties 
         sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties 
   service:
     port: 8080
