@@ -22,7 +22,10 @@ service:
 
   serviceAccount:
     create: false
-          
+
+  environemt:
+    SERVER_PORT: 8080
+
   deployment:
     containerPort: 8080
 
