@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/medcom-gateway
-    tag: "latest"
+    tag: "0.0.1.a"
 
   serviceAccount:
     create: false
