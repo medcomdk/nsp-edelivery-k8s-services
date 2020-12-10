@@ -1,7 +1,7 @@
 service:
   fullnameOverride: medcom-gateway
   namespace: nsptest
-  replicaCount: 0
+  replicaCount: 1
 
   ingress:
     enabled: true
