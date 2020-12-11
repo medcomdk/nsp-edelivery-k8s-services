@@ -25,6 +25,11 @@ service:
 
   deployment:
     containerPort: 8080
+    env:
+      SPRING_ACTIVEMQ_BROKERURL: "vm://embedded?broker.persistent=false,useShutdownHook=false"
+      SPRING_ACTIVEMQ_USER: admin
+      SPRING_ACTIVEMQ_PASSWORD: admin
+      SPRING_ACTIVEMQ_INMEMORY: true
 
   service:
     port: 8080
