@@ -9,8 +9,6 @@ service:
       kubernetes.io/ingress.class: nginx
     hosts:
       - host: medcom-gateway.nsptest.medcom.dk
-        paths:
-          - path: /repository
     tls:
       - hosts:
           - medcom-gateway.nsptest.medcom.dk
@@ -22,10 +20,6 @@ service:
 
   serviceAccount:
     create: false
-
-  env:
-    - name: SERVER_PORT
-      value: "8080"
 
   deployment:
     containerPort: 8080
