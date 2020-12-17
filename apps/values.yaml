@@ -51,3 +51,9 @@ argoApps:
       targetRevision: main
       valueFiles:
         - values.yaml
+
+    activemq:
+      path: mq
+      targetRevision: main
+      valueFiles:
+        - values.yaml
