@@ -29,6 +29,14 @@ service:
   service:
     port: 8161
     targetPort: container-port
+    
+    extraPorts:
+     mqport:
+       port: 61616
+       targetPort: 61616
+     rmiport:
+       port: 1099
+       targetPort: 1099
 
   certificate:
     mq.nsptest.medcom.dk:
