@@ -77,7 +77,7 @@ service:
         sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-gateway (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties 
         sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties         
         sed -ir 's/^[#]*\s*activeMQ.username=.*/activeMQ.username=admin/' /usr/local/tomcat/domibus/domibus.properties
-        sed -ir 's/^[#]*\s*activeMQ.password=.*/activeMQ.username=admin/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*activeMQ.password=.*/activeMQ.password=admin/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.broker.host=.*/activeMQ.broker.host=activemq/' /usr/local/tomcat/domibus/domibus.properties
   service:
     port: 8080
