@@ -25,6 +25,9 @@ service:
 
   deployment:
     containerPort: 8161
+    extraContainerPort:
+      mqport: 61616
+      rmiport: 1099
 
   service:
     port: 8161
@@ -33,10 +36,10 @@ service:
     extraPorts:
      mqport:
        port: 61616
-       targetPort: 61616
+       targetPort: mqport
      rmiport:
        port: 1099
-       targetPort: 1099
+       targetPort: rmiport
 
   certificate:
     mq.nsptest.medcom.dk:

@@ -3,5 +3,5 @@ name: activemq
 version: 1.12.1
 dependencies:
   - name: service
-    version: 1.12.1
+    version: 1.14.0
     repository: https://raw.githubusercontent.com/KvalitetsIT/helm-repo/master/
