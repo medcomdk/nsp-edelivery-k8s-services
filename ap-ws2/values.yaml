@@ -79,8 +79,11 @@ service:
         sed -ir 's/^[#]*\s*activeMQ.username=.*/activeMQ.username=admin/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.password=.*/activeMQ.password=admin/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.broker.host=.*/activeMQ.broker.host=activemq/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*activeMQ.brokerName=.*/activeMQ.brokerName=edelivery-mq/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*activeMQ.JMXURL=.*/activeMQ.JMXURL=service:jmx:rmi://${activeMQ.broker.host}:${activeMQ.rmiServerPort}/jndi/rmi://${activeMQ.broker.host}:${activeMQ.connectorPort}/jmxrmi/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*activeMQ.transportConnector.uri=.*/activeMQ.transportConnector.uri=tcp://${activeMQ.broker.host}:61616/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*activeMQ.rmiServerPort=.*/activeMQ.rmiServerPort=1099/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.connectorPort=.*/activeMQ.connectorPort=1099/' /usr/local/tomcat/domibus/domibus.properties
-        sed -ir 's/^[#]*\s*activeMQ.rmiServerPort==.*/activeMQ.rmiServerPort=1099/' /usr/local/tomcat/domibus/domibus.properties
   service:
     port: 8080
     targetPort: container-port
