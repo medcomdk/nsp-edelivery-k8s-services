@@ -31,7 +31,7 @@ service:
       commands:
           - bash
           - "-c"
-          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/tls.crt -inkey /input/tls.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias domibus"
+          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/tls.crt -inkey /input/tls.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias \"medcom-edelivery-dds (funktionscertifikat)\""
    
       extraVolumeMounts:
         keystore-dir:
@@ -48,6 +48,7 @@ service:
     hostAliases:
       212.98.96.26:
         - b-688bd8e9678ae0b24c1931eccf96d2d8.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
+        - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
         - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis3.dk.acc.edelivery.tech.ec.europa.eu
 
     extraVolumes:
@@ -72,10 +73,10 @@ service:
         export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
         echo "Customizing domibus property file :-)"
         sed -i 's/ap_db_1/ap-db/g' /usr/local/tomcat/domibus/domibus.properties
-        sed -ir "s/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks" /usr/local/tomcat/domibus/domibus.properties 
-        sed -ir "s/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234" /usr/local/tomcat/domibus/domibus.properties 
-        sed -ir "s/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=domibus" /usr/local/tomcat/domibus/domibus.properties 
-        sed -ir "s/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234" /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks/' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-dds (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties 
+        sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties 
   service:
     port: 8080
     targetPort: container-port

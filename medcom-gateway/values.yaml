@@ -1,0 +1,70 @@
+service:
+  fullnameOverride: medcom-gateway
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: medcom-gateway.nsptest.medcom.dk
+        paths:
+          - path:
+    tls:
+      - hosts:
+          - medcom-gateway.nsptest.medcom.dk
+        secretName: medcom-gateway.nsptest.medcom.dk
+
+  image:
+    repository: trifork/medcom-gateway
+    tag: "0.0.4-SNAPSHOT"
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 8080
+    env:
+      SPRING_ACTIVEMQ_BROKERURL:
+        value: "vm://embedded?broker.persistent=false,useShutdownHook=false"
+      SPRING_ACTIVEMQ_USER:
+        value: "admin"
+      SPRING_ACTIVEMQ_PASSWORD:
+        value: "admin"
+      SPRING_ACTIVEMQ_INMEMORY:
+        value: "true"
+      DDS_REGISTRYURL:
+        value: "http://openxds-registry/axis2/services/xdsregistryb"
+      DDS_REPOSITORYUNIQUEID:
+        value: "2.25.221705058086636180830704676615260644011"
+      DDS_HOMECOMMUNITYID:
+        value: "urn:oid:1.3.6.1.4.1.21367.2010.1.2.2045"
+      NAS_URL:
+        value: "https://nas2-nsp.nsptest.medcom.dk/notificationbroker/service"
+      CRA_DB_HOST:
+        value: "cradb"
+      CRA_DB_PORT:
+        value: "3306"
+      CRA_DB_NAME:
+        value: "cra"
+      CRA_DB_USER:
+        value: "cra"
+      CRA_DB_PASSWORD:
+        value: "cra"
+
+  service:
+    port: 8080
+    targetPort: container-port
+
+  certificate:
+    medcom-gateway.nsptest.medcom.dk:
+      namespace: nsptest
+      spec:
+        secretName: medcom-gateway.nsptest.medcom.dk
+        issuerRef:
+          name: letsencrypt-prod
+          kind: ClusterIssuer
+          group: cert-manager.io
+        dnsNames:
+          - medcom-gateway.nsptest.medcom.dk

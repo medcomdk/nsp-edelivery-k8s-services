@@ -1,5 +1,5 @@
 apiVersion: v2
-name: ap-ws2
+name: activemq
 version: 1.12.1
 dependencies:
   - name: service

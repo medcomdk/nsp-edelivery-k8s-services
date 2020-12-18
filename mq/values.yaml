@@ -1,0 +1,51 @@
+service:
+  fullnameOverride: activemq
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: mq.nsptest.medcom.dk
+        paths:
+          - path:
+    tls:
+      - hosts:
+          - mq.nsptest.medcom.dk
+        secretName: mq.nsptest.medcom.dk
+
+  image:
+    repository: trifork/activemq
+    tag: "2020-12-17T0930"
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 8161
+
+  service:
+    port: 8161
+    targetPort: container-port
+    
+    extraPorts:
+     mqport:
+       port: 61616
+       targetPort: 61616
+     rmiport:
+       port: 1099
+       targetPort: 1099
+
+  certificate:
+    mq.nsptest.medcom.dk:
+      namespace: nsptest
+      spec:
+        secretName: mq.nsptest.medcom.dk
+        issuerRef:
+          name: letsencrypt-prod
+          kind: ClusterIssuer
+          group: cert-manager.io
+        dnsNames:
+          - mq.nsptest.medcom.dk
