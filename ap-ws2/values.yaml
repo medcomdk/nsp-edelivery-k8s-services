@@ -84,6 +84,7 @@ service:
         sed -ir 's/^[#]*\s*activeMQ.transportConnector.uri=.*/activeMQ.transportConnector.uri=tcp://${activeMQ.broker.host}:61616/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.rmiServerPort=.*/activeMQ.rmiServerPort=1099/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.connectorPort=.*/activeMQ.connectorPort=1099/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*activeMQ.embedded.configurationFile=.*/ /' /usr/local/tomcat/domibus/domibus.properties
   service:
     port: 8080
     targetPort: container-port
