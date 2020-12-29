@@ -35,6 +35,17 @@ service:
         value: "manager"
 #      SPRING_ACTIVEMQ_INMEMORY:
 #        value: "true"
+      DESTINATIONS_METADATA_REGISTER_IN_QUEUE:
+        value: "metadata.stored"
+      DESTINATIONS_METADATA_REGISTER_OUT_QUEUE:
+        value: "metadata.registered"
+      DESTINATIONS_METADATA_NOTIFY_IN_QUEUE:
+        value: "metadata.registered"
+      DESTINATIONS_METADATA_NOTIFY_OUT_QUEUE:
+        value: "metadata.notified"
+      DESTINATIONS_METADATA_RECEIPT_IN_QUEUE:
+        value: "metadata.notified"
+
       DDS_REGISTRYURL:
         value: "http://openxds-registry/axis2/services/xdsregistryb"
       DDS_REPOSITORYUNIQUEID:
