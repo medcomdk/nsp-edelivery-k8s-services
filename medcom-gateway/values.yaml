@@ -32,6 +32,8 @@ service:
         value: "system"
       SPRING_ACTIVEMQ_PASSWORD:
         value: "manager"
+      SPRING_PROFILES_INCLUDE:
+        value: "demo"
 
       DDS_REGISTRYURL:
         value: "https://dds-nsp.nsptest.medcom.dk/ddsregistry"
