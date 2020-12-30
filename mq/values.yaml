@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/activemq
-    tag: "2020-12-17T0930"
+    tag: "2020-12-30T1230"
 
   serviceAccount:
     create: false

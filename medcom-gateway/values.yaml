@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/medcom-gateway
-    tag: "0.0.5-SNAPSHOT-e67cadf4"
+    tag: "0.0.6-SNAPSHOT"
 
   serviceAccount:
     create: false
@@ -32,17 +32,6 @@ service:
         value: "system"
       SPRING_ACTIVEMQ_PASSWORD:
         value: "manager"
-
-      DESTINATIONS_METADATA_REGISTER_IN_QUEUE:
-        value: "metadata.stored"
-      DESTINATIONS_METADATA_REGISTER_OUT_QUEUE:
-        value: "metadata.registered"
-      DESTINATIONS_METADATA_NOTIFY_IN_QUEUE:
-        value: "metadata.registered"
-      DESTINATIONS_METADATA_NOTIFY_OUT_QUEUE:
-        value: "metadata.notified"
-      DESTINATIONS_METADATA_RECEIPT_IN_QUEUE:
-        value: "metadata.notified"
 
       DDS_REGISTRYURL:
         value: "https://dds-nsp.nsptest.medcom.dk/ddsregistry"
