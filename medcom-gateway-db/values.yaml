@@ -1,0 +1,15 @@
+mariadb:
+  namespace: nsptest
+  db:
+    user: "medcomgateway"
+    password: "medcomgateway"
+    name: "medcomgateway"
+  rootUser:
+    password: "rootroot"
+  replication:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      storageClass: "applications"
+      size: "1Gi"

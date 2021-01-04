@@ -52,6 +52,13 @@ argoApps:
       valueFiles:
         - values.yaml
 
+    medcom-gateway-db:
+      path: medcom-gateway-db
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+
+
     activemq:
       path: mq
       targetRevision: main

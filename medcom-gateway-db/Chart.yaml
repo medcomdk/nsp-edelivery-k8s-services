@@ -1,0 +1,7 @@
+apiVersion: v2
+name: medcom-gateway.db
+version: 7.10.2
+dependencies:
+  - name: mariadb
+    version: 7.10.2
+    repository: https://charts.bitnami.com/bitnami
