@@ -72,7 +72,8 @@ service:
         export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
         echo "Customizing domibus property file :-)"
         sed -i 's/ap_db_1/ap-db2/g' /usr/local/tomcat/domibus/domibus.properties
-        sed -ir 's/^[#]*\s*domibus.database.serverName=.*/domibus.database.serverName=ap-db2' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.datasource.url=.*/domibus.datasource.url=jdbc:mysql://ap-db2:3306/domibus_schema?useSSL=false' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.datasource.xa.property.url=.*/domibus.datasource.xa.property.url=jdbc:mysql://ap-db2:3306/domibus_schema?pinGlobalTxToPhysicalConnection=true' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-gateway (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties 
