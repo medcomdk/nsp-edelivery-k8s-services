@@ -35,6 +35,13 @@ service:
       SPRING_PROFILES_INCLUDE:
         value: "demo"
 
+      SPRING_DATASOURCE_USERNAME:
+        value: "medcomgateway"
+      SPRING_DATASOURCE_PASSWORD:
+        value: "medcomgateway"
+      SPRING_DATASOURCE_URL:
+        value: "jdbc:mariadb://medcom-gateway-db-mariadb:3306/medcomgateway"
+
       DDS_REGISTRYURL:
         value: "https://dds-nsp.nsptest.medcom.dk/ddsregistry"
       DDS_REPOSITORYUNIQUEID:
