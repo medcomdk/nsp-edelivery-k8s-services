@@ -63,6 +63,9 @@ service:
       CRA_DB_PASSWORD:
         value: "cra"
 
+      LOGGING_LEVEL_DK_MEDCOM:
+        value: debug
+
   service:
     port: 8080
     targetPort: container-port
