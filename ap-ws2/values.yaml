@@ -103,7 +103,7 @@ service:
 
         # ---------------------------------- Database ----------------------------------
 
-        domibus.database.serverName=db
+        domibus.database.serverName=ap-db2
         domibus.database.port=3306
         domibus.database.schema=domibus_schema
 
