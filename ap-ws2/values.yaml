@@ -77,9 +77,9 @@ service:
         domibus.UI.title.name=Domibus Medcom Gateway AP
         # ---------------------------------- Keystore/Truststore -----------------------
 
-        domibus.security.keystore.location=${domibus.config.location}/keystores/cert_keystore.jks
+        domibus.security.keystore.location=/domibusconfig/domibus.jks
         domibus.security.keystore.type=jks
-        domibus.security.keystore.password=1
+        domibus.security.keystore.password=Test1234
 
         domibus.security.key.private.alias=medcom-edelivery-gateway (funktionscertifikat)
         domibus.security.key.private.password=Test1234
