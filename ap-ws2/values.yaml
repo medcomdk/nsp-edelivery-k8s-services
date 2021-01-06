@@ -45,6 +45,9 @@ service:
         setenv.sh:
             configMapMountPath: /usr/local/tomcat/bin/setenv.sh
             configMapMountSubPath: setenv.sh
+        domibus.properties:
+            configMapMountPath: /usr/local/tomcat/domibus/domibus.properties
+            configMapMountSubPath: domibus.properties
     hostAliases:
       212.98.96.26:
         - b-688bd8e9678ae0b24c1931eccf96d2d8.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
@@ -73,7 +76,7 @@ service:
         echo "Customizing domibus property file :-)"
         sed -i 's/ap_db_1/ap-db2/g' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-gateway (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties
-        sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties         
+        sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.username=.*/activeMQ.username=system/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.password=.*/activeMQ.password=manager/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.broker.host=.*/activeMQ.broker.host=activemq/' /usr/local/tomcat/domibus/domibus.properties
@@ -83,6 +86,9 @@ service:
         sed -ir 's/^[#]*\s*activeMQ.rmiServerPort=.*/activeMQ.rmiServerPort=1099/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.connectorPort=.*/activeMQ.connectorPort=1099/' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*activeMQ.embedded.configurationFile=.*/ /' /usr/local/tomcat/domibus/domibus.properties
+    domibus.properties: |
+        domibus.UI.title.name=Domibus Medcom Gateway AP
+
   service:
     port: 8080
     targetPort: container-port
