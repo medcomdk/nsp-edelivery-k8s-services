@@ -17,8 +17,8 @@ service:
         secretName: ap-gateway.nsptest.medcom.dk
 
   image:
-    repository: localhost:30500/ap_ws
-    tag: "2"
+    repository: trifork/domibus
+    tag: "2021-01-05T1500"
 
   serviceAccount:
     create: false
