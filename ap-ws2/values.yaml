@@ -120,7 +120,7 @@ service:
 
         # ---------------------------------- Dynamic Discovery -------------------------
 
-        domibus.dynamicdiscovery.useDynamicDiscovery=true
+        domibus.dynamicdiscovery.useDynamicDiscovery=false
         domibus.smlzone=dk.acc.edelivery.tech.ec.europa.eu
         domibus.dynamicdiscovery.client.specification=OASIS
         domibus.dynamicdiscovery.oasisclient.regexCertificateSubjectValidation=
