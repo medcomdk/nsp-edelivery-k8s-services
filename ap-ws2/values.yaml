@@ -122,6 +122,7 @@ service:
         domibus.dynamicdiscovery.useDynamicDiscovery=true
         domibus.smlzone=dk.acc.edelivery.tech.ec.europa.eu
         domibus.dynamicdiscovery.client.specification=OASIS
+        domibus.dynamicdiscovery.oasisclient.regexCertificateSubjectValidation=
 
         # ---------------------------------- ActiveMQ ----------------------------------
 
