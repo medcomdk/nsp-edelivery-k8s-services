@@ -35,6 +35,9 @@ service:
       SPRING_PROFILES_INCLUDE:
         value: "demo"
 
+      GATEWAY_TYPE:
+        value: "x-domain"
+
       SPRING_DATASOURCE_USERNAME:
         value: "medcomgateway"
       SPRING_DATASOURCE_PASSWORD:
