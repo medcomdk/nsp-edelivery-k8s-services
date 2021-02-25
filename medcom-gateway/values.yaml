@@ -38,6 +38,13 @@ service:
       GATEWAY_TYPE:
         value: "x-domain"
 
+      TRACKING_URL:
+        value: "http://ehealt-trackandtrace-pilot.azurewebsites.net"
+      TRACKING_USER:
+        value: "nsp"
+      TRACKING_PASSWORD:
+        value: "f#3_$ExWvOiZ"
+
       SPRING_DATASOURCE_USERNAME:
         value: "medcomgateway"
       SPRING_DATASOURCE_PASSWORD:
