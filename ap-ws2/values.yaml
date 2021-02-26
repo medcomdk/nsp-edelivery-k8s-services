@@ -48,13 +48,6 @@ service:
     hostAliases:
       212.98.96.26:
         - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis3.dk.acc.edelivery.tech.ec.europa.eu
-    dns:
-      - 8.8.8.8
-      - 8.8.4.4
-      - 1.1.1.1
-      - 9.9.9.9
-      - 208.67.222.222
-      - 209.244.0.3
     extraVolumes:
       keystore-dir: |
         emptyDir: {}
