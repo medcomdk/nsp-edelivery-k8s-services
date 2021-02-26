@@ -45,13 +45,13 @@ service:
         setenv.sh:
             configMapMountPath: /usr/local/tomcat/bin/setenv.sh
             configMapMountSubPath: setenv.sh
-    hostAliases:
-      212.98.96.26:
-        - b-688bd8e9678ae0b24c1931eccf96d2d8.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
-        - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
-        - b-5ad06aa330c02903faf9bd97421c7870.iso6523-actorid-upis3.dk.acc.edelivery.tech.ec.europa.eu
-        - b-a65882d78e7b9ae11b49a07ccf4e9a66.iso6523-actorid-upis.dk.acc.edelivery.tech.ec.europa.eu
-        
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+      - 1.1.1.1
+      - 9.9.9.9
+      - 208.67.222.222
+      - 209.244.0.3
     extraVolumes:
       keystore-dir: |
         emptyDir: {}
