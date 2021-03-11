@@ -86,7 +86,7 @@ service:
         keytool -list -keystore /domibusconfig/domibus.jks -storepass Test1234
         ls -l /usr/local/tomcat/domibus/keystores/
         echo "Truststore contents:"
-        keytool -list -keystore /usr/local/tomcat/domibus/keystores/truststore.jks -storepass 1
+        keytool -list -keystore /usr/local/tomcat/domibus/keystores/cert_truststore.jks -storepass 1
   service:
     port: 8080
     targetPort: container-port
