@@ -78,6 +78,7 @@ service:
         sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-dds (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties 
         sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties 
         sed -ir 's/^[#]*\s*domibus.dynamicdiscovery.useDynamicDiscovery=.*/domibus.dynamicdiscovery.useDynamicDiscovery=false/' /usr/local/tomcat/domibus/domibus.properties
+        cat /usr/local/tomcat/domibus/domibus.properties
   service:
     port: 8080
     targetPort: container-port
