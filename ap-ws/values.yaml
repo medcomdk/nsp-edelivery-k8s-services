@@ -51,7 +51,7 @@ service:
         emptyDir: {}
       input-keys: |
         secret:
-          secretName: ap-dd
+          secretName: ap-dds
 
     extraVolumeMounts:
       keystore-dir:
