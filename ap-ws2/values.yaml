@@ -76,9 +76,10 @@ service:
         echo "domibusconfig contents:"
         ls -l /domibusconfig/
         echo "Keystore contents:"
-        keytool -list -keystore /domibusconfig/domibus.jks
-        echo "Truststore contents:"
-        keytool -list -keystore /domibusconfig/truststore.jks
+        keytool -list -keystore /domibusconfig/domibus.jks -storepass Test1234
+        ls -l /usr/local/tomcat/domibus/keystores/
+        # echo "Truststore contents:"
+        keytool -list -keystore /usr/local/tomcat/domibus/keystores/truststore.jks -storepass 1
   service:
     port: 8080
     targetPort: container-port
