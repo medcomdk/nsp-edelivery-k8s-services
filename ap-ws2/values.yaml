@@ -69,7 +69,7 @@ service:
         export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
 
     domibus.properties: |
-      domibus.UI.title.name=Domibus Medcom Gateway AP
+      domibus.UI.title.name=Domibus Medcom Gateway AP.
       domibus.logging.payload.print=true
       # ---------------------------------- Keystore/Truststore -----------------------
 
