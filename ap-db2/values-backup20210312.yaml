@@ -2,8 +2,9 @@ mysql:
   namespace: "nsptest"
   fullnameOverride: "ap-db2"
   image:
-    repository: "trifork/domibus-mysql"
-    tag: "4.1.6"
+    registry: "localhost:30500"
+    repository: "ap_db"
+    tag: "2"
   replication:
     enabled: false
   master:
