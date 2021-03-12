@@ -1,0 +1,97 @@
+service:
+  fullnameOverride: ap-ws2
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: ap-gateway.nsptest.medcom.dk
+        paths:
+          - path: /domibus
+    tls:
+      - hosts:
+          - ap-gateway.nsptest.medcom.dk
+        secretName: ap-gateway.nsptest.medcom.dk
+
+  image:
+    repository: localhost:30500/ap_ws
+    tag: "2"
+
+  serviceAccount:
+    create: false
+    
+  initContainers:
+    keystorebuilder:
+      image:
+        repository: "openjdk"
+        tag: "11-jre-slim"
+      commands:
+          - bash
+          - "-c"
+          - "rm /output/domibus.jks; openssl pkcs12 -export -in /input/tls.crt -inkey /input/tls.key -name domibus -out my.p12 -password pass:Test1234; keytool -importkeystore -srckeystore my.p12 -srcstoretype pkcs12 -srcalias domibus -srcstorepass Test1234 -destkeystore /output/domibus.jks -deststoretype jks -deststorepass Test1234 -destalias \"medcom-edelivery-gateway (funktionscertifikat)\""
+   
+      extraVolumeMounts:
+        keystore-dir:
+          mountPath: /output
+        input-keys:
+          mountPath: /input
+          
+  deployment:
+    containerPort: 8080
+    configMapMountPaths:
+        setenv.sh:
+            configMapMountPath: /usr/local/tomcat/bin/setenv.sh
+            configMapMountSubPath: setenv.sh
+    extraVolumes:
+      keystore-dir: |
+        emptyDir: {}
+      input-keys: |
+        secret:
+          secretName: ap-gateway
+    extraVolumeMounts:
+      keystore-dir:
+        mountPath: /domibusconfig
+        
+  extraConfigMap:
+    setenv.sh: |
+        #!/bin/sh
+        # Set CLASSPATH to include $CATALINA_HOME/domibus
+        # where the domibus 'domibus.config.properties’ is located
+        export CLASSPATH=$CATALINA_HOME/domibus
+        export CATALINA_TMPDIR=$CATALINA_HOME/tmp
+        export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Xms128m -Xmx1024m "
+        export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
+        echo "Customizing domibus property file >:-)"
+        sed -i 's/ap_db_1/ap-db2/g' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.security.keystore.password=.*/domibus.security.keystore.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-gateway (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.dynamicdiscovery.partyid.type=.*/domibus.dynamicdiscovery.partyid.type=urn:oasis:names:tc:ebcore:partyid-type:iso6523-actorid-upis/' /usr/local/tomcat/domibus/domibus.properties
+        echo "domibus.properties:"
+        cat /usr/local/tomcat/domibus/domibus.properties
+        echo "domibusconfig contents:"
+        ls -l /domibusconfig/
+        echo "Keystore contents:"
+        keytool -list -keystore /domibusconfig/domibus.jks -storepass Test1234
+        ls -l /usr/local/tomcat/domibus/keystores/
+        echo "Truststore contents:"
+        keytool -list -keystore /usr/local/tomcat/domibus/keystores/cert_truststore.jks -storepass 1
+  service:
+    port: 8080
+    targetPort: container-port
+    
+  certificate:
+    ap-gateway.nsptest.medcom.dk:
+      namespace: nsptest
+      spec:
+        secretName: ap-gateway.nsptest.medcom.dk
+        issuerRef:
+          name: letsencrypt-prod
+          kind: ClusterIssuer
+          group: cert-manager.io
+        dnsNames:
+          - ap-gateway.nsptest.medcom.dk
