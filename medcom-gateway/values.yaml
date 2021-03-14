@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/medcom-gateway
-    tag: "0.0.6-SNAPSHOT-cbe8e03"
+    tag: "0.0.6-SNAPSHOT-227e256"
 
   serviceAccount:
     create: false
@@ -37,6 +37,14 @@ service:
 
       GATEWAY_TYPE:
         value: "x-domain"
+      GATEWAY_PARTYTYPE:
+        value: "iso6523-actorid-upis"
+      GATEWAY_PARTYIDTYPE:
+        value: "urn:oasis:names:tc:ebcore:partyid-type:iso6523-actorid-upis"
+      GATEWAY_NAME:
+        value: "medcom-edelivery-gateway (funktionscertifikat)"
+      GATEWAY_ORIGINALSENDER:
+        value: "dds"
 
       TRACKING_URL:
         value: "http://ehealt-trackandtrace-pilot.azurewebsites.net"
