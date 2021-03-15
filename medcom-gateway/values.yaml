@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/medcom-gateway
-    tag: "0.0.6-SNAPSHOT-a05fa40"
+    tag: "0.0.6-SNAPSHOT-6f593f7"
 
   serviceAccount:
     create: false
@@ -44,7 +44,7 @@ service:
       GATEWAY_NAME:
         value: "medcom-edelivery-gateway (funktionscertifikat)"
       GATEWAY_ORIGINALSENDER:
-        value: "dds"
+        value: "9999999999901"
       GATEWAY_DDSRECIPIENT:
         value: "9999999999901"
 
