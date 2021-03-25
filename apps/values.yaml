@@ -24,13 +24,13 @@ argoApps:
   applications:
     plsp-registryadapter:
       path: plsp-registryadapter
-      targetRevision: master
+      targetRevision: main
       valueFiles:
         - values.yaml
 
     plsp-repositoryadapter:
       path: plsp-repositoryadapter
-      targetRevision: master
+      targetRevision: main
       valueFiles:
         - values.yaml
 
