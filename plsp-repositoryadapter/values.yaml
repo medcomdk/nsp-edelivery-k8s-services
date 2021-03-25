@@ -1,0 +1,31 @@
+service:
+  fullnameOverride: plsp-repositoryadapter
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: false
+
+  image:
+    repository: plspregistry.azurecr.io/plspxdsadapter/xdsrepository
+    tag: "1914"
+
+  imagePullSecrets:
+    - name: dockerplsp
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 8080
+    env: 
+      backend_service_url:
+        value: "http://repo-xds-api-edelivery-pilot.plsp.dk"
+      homecommunity_id:
+        value: "1.2.208.192.100"
+      repository_unique_id:
+        value: "1.2.3.4"
+
+  service:
+    port: 80
+    targetPort: container-port

@@ -1,0 +1,49 @@
+service:
+  fullnameOverride: plsp-registryadapter
+  namespace: nsptest
+  replicaCount: 1
+
+  ingress:
+    enabled: false
+
+  image:
+    repository: plspregistry.azurecr.io/plspxdsadapter/xdsregistry
+    tag: "1914"
+
+  imagePullSecrets:
+    - name: dockerplsp
+
+  serviceAccount:
+    create: false
+
+  deployment:
+    containerPort: 8080
+    env: 
+      backend_service_url:
+        value: "http://reg-xds-api-edelivery-pilot.plsp.dk"
+      homecommunity_id:
+        value: "1.2.208.192.100"
+      repository_unique_id:
+        value: "1.2.3.4"
+      typecode_code:
+        value: "39289-4"
+      typecode_text:
+        value: "Dato og tidspunkt for møde mellem patient og sundhedsperson"
+      typecode_scheme:
+        value: "2.16.840.1.113883.6.1"
+      classcode_code:
+        value: "001"
+      classcode_text:
+        value: "Klinisk rapport"
+      classcode_scheme:
+        value: "1.2.208.184.100.9"
+      formatcode_code:
+        value: "urn:ad:dk:medcom:appointmentsummary:full"
+      formatcode_text:
+        value: "1.2.208.184.100.10"
+      formatcode_scheme:
+        value: "DK Appointment Summary Document schema"
+
+  service:
+    port: 80
+    targetPort: container-port

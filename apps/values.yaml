@@ -22,6 +22,18 @@ argoApps:
       warnignored: true
 
   applications:
+    plsp-registryadapter:
+      path: plsp-registryadapter
+      targetRevision: master
+      valueFiles:
+        - values.yaml
+
+    plsp-repositoryadapter:
+      path: plsp-repositoryadapter
+      targetRevision: master
+      valueFiles:
+        - values.yaml
+
     ap-db:
       path: ap-db
       targetRevision: main
