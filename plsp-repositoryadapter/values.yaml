@@ -20,7 +20,7 @@ service:
     containerPort: 8080
     env: 
       backend_service_url:
-        value: "http://repo-xds-api-edelivery-pilot.plsp.dk"
+        value: "https://repo-xds-api-edelivery-pilot.plsp.dk"
       homecommunity_id:
         value: "1.2.208.192.100"
       repository_unique_id:
