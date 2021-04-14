@@ -20,29 +20,29 @@ service:
     containerPort: 8080
     env: 
       backend_service_url:
-        value: "http://reg-xds-api-edelivery-pilot.plsp.dk"
+        value: "https://reg-xds-api-edelivery-pilot.plsp.dk"
       homecommunity_id:
         value: "1.2.208.192.100"
       repository_unique_id:
         value: "1.2.3.4"
       typecode_code:
-        value: "39289-4"
+        value: "MedCom-OIOXML"
       typecode_text:
-        value: "Dato og tidspunkt for møde mellem patient og sundhedsperson"
+        value: "MedCom-OIOXML"
       typecode_scheme:
         value: "2.16.840.1.113883.6.1"
       classcode_code:
-        value: "001"
+        value: "005"
       classcode_text:
-        value: "Klinisk rapport"
+        value: "Meddelelse"
       classcode_scheme:
         value: "1.2.208.184.100.9"
       formatcode_code:
-        value: "urn:ad:dk:medcom:appointmentsummary:full"
+        value: "uurn:ad:dk:medcom:message:full"
       formatcode_text:
-        value: "1.2.208.184.100.10"
+        value: "dk:medcom:meddelelse"
       formatcode_scheme:
-        value: "DK Appointment Summary Document schema"
+        value: "1.2.208.184.100.10"
 
   service:
     port: 80
