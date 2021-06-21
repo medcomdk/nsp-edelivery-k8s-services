@@ -34,7 +34,6 @@ service:
         value: "manager"
       SPRING_PROFILES_INCLUDE:
         value: "demo"
-
       GATEWAY_TYPE:
         value: "x-domain"
       GATEWAY_PARTYTYPE:
@@ -48,6 +47,8 @@ service:
         value: "9999999999901"
       GATEWAY_DDSRECIPIENT:
         value: "9999999999901"
+      GATEWAY_DUMMY:
+        value: "42"
 
       TRACKING_URL:
         value: "http://ehealt-trackandtrace-pilot.azurewebsites.net"
