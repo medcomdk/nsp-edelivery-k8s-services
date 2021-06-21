@@ -41,6 +41,7 @@ service:
         value: "iso6523-actorid-upis"
       GATEWAY_PARTYIDTYPE:
         value: "urn:oasis:names:tc:ebcore:partyid-type:iso6523-actorid-upis"
+
       GATEWAY_NAME:
         value: "medcom-edelivery-gateway (funktionscertifikat)"
       GATEWAY_ORIGINALSENDER:
