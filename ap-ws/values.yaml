@@ -73,7 +73,7 @@ service:
         sed -ir 's/^[#]*\s*domibus.security.key.private.alias=.*/domibus.security.key.private.alias=medcom-edelivery-dds (funktionscertifikat)/' /usr/local/tomcat/domibus/domibus.properties 
         sed -ir 's/^[#]*\s*domibus.security.key.private.password=.*/domibus.security.key.private.password=Test1234/' /usr/local/tomcat/domibus/domibus.properties 
         sed -ir 's/^[#]*\s*domibus.dynamicdiscovery.useDynamicDiscovery=.*/domibus.dynamicdiscovery.useDynamicDiscovery=true/' /usr/local/tomcat/domibus/domibus.properties
-        sed -ir 's/^[#]*\s*domibus.dynamicdiscovery.partyid.type=.*/domibus.dynamicdiscovery.partyid.type=urn:oasis:names:tc:ebcore:partyid-type:iso6523-actorid-upis/' /usr/local/tomcat/domibus/domibus.properties
+        sed -ir 's/^[#]*\s*domibus.dynamicdiscovery.partyid.type=.*/domibus.dynamicdiscovery.partyid.type=urn:fdc:digst.dk:2021:identifiers:ap/' /usr/local/tomcat/domibus/domibus.properties
         echo "domibus.properties:"
         cat /usr/local/tomcat/domibus/domibus.properties
         echo "domibusconfig contents:"

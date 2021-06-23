@@ -119,7 +119,7 @@ service:
       domibus.smlzone=dk.acc.edelivery.tech.ec.europa.eu
       domibus.dynamicdiscovery.client.specification=OASIS
       domibus.dynamicdiscovery.oasisclient.regexCertificateSubjectValidation=
-      domibus.dynamicdiscovery.partyid.type=urn:oasis:names:tc:ebcore:partyid-type:iso6523-actorid-upis
+      domibus.dynamicdiscovery.partyid.type=urn:fdc:digst.dk:2021:identifiers:ap
 
       # ---------------------------------- ActiveMQ ----------------------------------
 
