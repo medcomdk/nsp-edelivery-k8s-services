@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/medcom-gateway
-    tag: "0.0.6-SNAPSHOT-f7de702"
+    tag: "0.0.6-SNAPSHOT-f28135a"
 
   serviceAccount:
     create: false
@@ -40,6 +40,8 @@ service:
         value: "iso6523-actorid-upis"
       GATEWAY_PARTYIDTYPE:
         value: "urn:fdc:digst.dk:2021:identifiers:ap"
+      GATEWAY_AGREEMENTREF:
+        value: "urn:fdc:digst.dk:2021:agreements:edelivery:ap_provider"
 
       GATEWAY_NAME:
         value: "medcom-edelivery-gateway (funktionscertifikat)"
