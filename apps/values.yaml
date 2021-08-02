@@ -1,6 +1,6 @@
 argoApps:
   server: https://kubernetes.default.svc
-  repoUrl: https://github.com/medcomdk/nsp-edelivery-k8s-services
+  repoUrl: git@github.com:medcomdk/nsp-edelivery-k8s-services.git
 
   namespace: nsptest
   project: nsp-edelivery-medcom
@@ -9,7 +9,7 @@ argoApps:
     nsp-edelivery-medcom:
       description: NSP eDelivery Test
       sources:
-        - https://github.com/medcomdk/nsp-edelivery-k8s-services
+        - git@github.com:medcomdk/nsp-edelivery-k8s-services.git
       destinations:
         - namespace: nsptest
           server: https://kubernetes.default.svc
