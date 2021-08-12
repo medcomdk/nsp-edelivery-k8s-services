@@ -71,7 +71,7 @@ service:
     domibus.properties: |
       domibus.UI.title.name=Domibus Medcom Gateway AP.
       domibus.logging.payload.print=true
-      # ---------------------------------- Keystore/Truststore -----------------------
+      # ---------------------------------- Keystore/Truststore ------------------------
 
       domibus.security.keystore.location=/domibusconfig/domibus.jks
       domibus.security.keystore.type=jks
