@@ -23,3 +23,11 @@ argoApps:
         - values.yaml
         - values-kit.yaml
         - values-kittest.yaml
+
+    ap-ws2:
+      path: ap-ws2
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+        - values-kittest.yaml
