@@ -1,0 +1,12 @@
+mysql:
+  namespace: edelevery-sdn
+  image:
+    registry: dockerregistry.t0.hosting.kitkube.dk/edelivery
+  master:
+    resources:
+      limits:
+        cpu: 250m
+        memory: 640Mi
+    persistence:
+      storageClass: longhorn
+

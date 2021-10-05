@@ -1,0 +1,74 @@
+argoApps:
+  server: https://kubernetes.default.svc
+  repoUrl: git@github.com:medcomdk/nsp-edelivery-k8s-services.git
+
+  namespaceArgo: infrastructure
+  namespace: edelevery-sdn
+  project: edelevery-sdn
+
+  projects:
+
+  applications:
+    plsp-registryadapter:
+      path: plsp-registryadapter
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+    plsp-repositoryadapter:
+      path: plsp-repositoryadapter
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+    ap-db:
+      path: ap-db
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+    ap-ws:
+      path: ap-ws
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+    ap-db2:
+      path: ap-db2
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+    ap-ws2:
+      path: ap-ws2
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+    medcom-gateway:
+      path: medcom-gateway
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+    medcom-gateway-db:
+      path: medcom-gateway-db
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+
+
+    activemq:
+      path: mq
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml

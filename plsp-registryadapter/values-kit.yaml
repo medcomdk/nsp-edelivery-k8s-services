@@ -1,0 +1,17 @@
+service:
+  namespace: edelevery-sdn
+
+  ingress:
+    enabled: false
+
+  image:
+    repository: dockerregistry.t0.hosting.kitkube.dk/plsp/plspxdsadapter/xdsregistry
+
+  imagePullSecrets:
+    - name: dockerplsp
+
+  deployment:
+    resources:
+      limits:
+        cpu: 250m
+        memory: 512Mi

@@ -1,0 +1,9 @@
+mariadb:
+  namespace: edelevery-sdn
+  master:
+    resources:
+      limits:
+        cpu: 250m
+        memory: 512Mi
+    persistence:
+      storageClass: longhorn

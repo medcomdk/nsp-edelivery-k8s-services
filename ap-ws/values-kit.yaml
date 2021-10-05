@@ -1,0 +1,34 @@
+service:
+  namespace: edelevery-sdn
+
+  ingress:
+    enabled: false
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: ap-dds.nsptest.medcom.dk
+        paths:
+          - path: /domibus
+    tls:
+      - hosts:
+          - ap-dds.nsptest.medcom.dk
+        secretName: ap-dds.nsptest.medcom.dk
+
+  image:
+    repository: dockerregistry.t0.hosting.kitkube.dk/edelivery/ap_ws
+
+  initContainers:
+    keystorebuilder:
+      image:
+        repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/library/openjdk
+      resources:
+        limits:
+          cpu: 250m
+          memory: 512Mi
+
+          
+  deployment:
+    resources:
+      limits:
+        cpu: 250m
+        memory: 2Gi

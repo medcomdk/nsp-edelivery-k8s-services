@@ -1,0 +1,24 @@
+service:
+  namespace: edelevery-sdn
+
+  ingress:
+    enabled: false
+    annotations:
+      kubernetes.io/ingress.class: nginx
+    hosts:
+      - host: mq.nsptest.medcom.dk
+        paths:
+          - path:
+    tls:
+      - hosts:
+          - mq.nsptest.medcom.dk
+        secretName: mq.nsptest.medcom.dk
+
+  image:
+    repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/trifork/activemq
+
+  deployment:
+    resources:
+      limits:
+        cpu: 250m
+        memory: 512Mi
