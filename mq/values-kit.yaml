@@ -22,3 +22,5 @@ service:
       limits:
         cpu: 250m
         memory: 512Mi
+
+  certificate:
