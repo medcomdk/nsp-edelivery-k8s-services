@@ -1,0 +1,18 @@
+argoApps:
+  projects:
+
+  applications:
+    edelevery-sdn-applications:
+      path: apps
+      targetRevision: main
+      valueFiles:
+        - values-kit.yaml
+        - values-kittest.yaml
+
+    ap-db:
+      path: ap-db
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+        - values-kit.yaml
+        - values-kittest.yaml
