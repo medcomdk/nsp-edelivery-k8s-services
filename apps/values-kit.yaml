@@ -9,6 +9,12 @@ argoApps:
   projects:
 
   applications:
+    edelevery-sdn-applications:
+      path: apps
+      targetRevision: main
+      valueFiles:
+        - values-kit.yaml
+
     plsp-registryadapter:
       path: plsp-registryadapter
       targetRevision: main
