@@ -25,12 +25,18 @@ service:
         limits:
           cpu: 250m
           memory: 512Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
 
   deployment:
     resources:
       limits:
         cpu: 250m
         memory: 2Gi
+      requests:
+        cpu: 150m
+        memory: 1Gi
 
   sealedSecret:
     ap-gateway:

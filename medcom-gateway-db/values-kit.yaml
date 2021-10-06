@@ -5,5 +5,8 @@ mariadb:
       limits:
         cpu: 250m
         memory: 512Mi
+      requests:
+        cpu: 50m
+        memory: 124Mi
     persistence:
       storageClass: longhorn
