@@ -2,17 +2,17 @@ service:
   namespace: edelevery-sdn
 
   ingress:
-    enabled: false
+    enabled: true
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - host: medcom-gateway.nsptest.medcom.dk
+      - host: medcom-gateway.edevlicery.dsdn.dk
         paths:
           - path:
     tls:
       - hosts:
-          - medcom-gateway.nsptest.medcom.dk
-        secretName: medcom-gateway.nsptest.medcom.dk
+          - medcom-gateway.edevlicery.dsdn.dk
+        secretName: star.edevlicery.dsdn.dk
 
   image:
     repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/trifork/medcom-gateway

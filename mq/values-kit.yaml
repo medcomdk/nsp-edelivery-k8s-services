@@ -2,17 +2,17 @@ service:
   namespace: edelevery-sdn
 
   ingress:
-    enabled: false
+    enabled: true
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - host: mq.nsptest.medcom.dk
+      - host: mq.edevlicery.dsdn.dk
         paths:
           - path:
     tls:
       - hosts:
-          - mq.nsptest.medcom.dk
-        secretName: mq.nsptest.medcom.dk
+          - mq.edevlicery.dsdn.dk
+        secretName: star.edevlicery.dsdn.dk
 
   image:
     repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/trifork/activemq
