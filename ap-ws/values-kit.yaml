@@ -6,13 +6,13 @@ service:
     annotations:
       kubernetes.io/ingress.class: nginx
     hosts:
-      - host: ap-dds.edevlicery.dsdn.dk
+      - host: ap-dds.edelivery.dsdn.dk
         paths:
           - path: /domibus
     tls:
       - hosts:
-          - ap-dds.edevlicery.dsdn.dk
-        secretName: star.edevlicery.dsdn.dk
+          - ap-dds.edelivery.dsdn.dk
+        secretName: star.edelivery.dsdn.dk
 
   image:
     repository: dockerregistry.hosting.kitkube.dk/edelivery/ap_ws
