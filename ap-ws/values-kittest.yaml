@@ -1,4 +1,11 @@
 service:
+  image:
+    repository: dockerregistry.t0.hosting.kitkube.dk/edelivery/ap_ws
+
+  initContainers:
+    keystorebuilder:
+      image:
+        repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/library/openjdk
   sealedSecret:
     ap-dds:
       encryptedData:
