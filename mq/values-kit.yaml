@@ -9,7 +9,7 @@ service:
     hosts:
       - host: mq.edelivery.dsdn.dk
         paths:
-          - path:
+          - path: /
     tls:
       - hosts:
           - mq.edelivery.dsdn.dk
