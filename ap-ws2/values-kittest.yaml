@@ -1,4 +1,11 @@
 service:
+  image:
+    repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/trifork/domibus
+
+  initContainers:
+    keystorebuilder:
+      image:
+        repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/library/openjdk
   sealedSecret:
     ap-gateway:
       encryptedData:

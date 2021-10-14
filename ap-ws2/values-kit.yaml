@@ -5,22 +5,23 @@ service:
     enabled: true
     annotations:
       kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.100.0/24
     hosts:
-      - host: ap-gateway.edevlicery.dsdn.dk
+      - host: ap-gateway.edelivery.dsdn.dk
         paths:
           - path: /domibus
     tls:
       - hosts:
-          - ap-gateway.edevlicery.dsdn.dk
-        secretName: star.edevlicery.dsdn.dk
+          - ap-gateway.edelivery.dsdn.dk
+        secretName: star.edelivery.dsdn.dk
 
   image:
-    repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/trifork/domibus
+    repository: dockerregistry.hosting.kitkube.dk/dockerhub/trifork/domibus
 
   initContainers:
     keystorebuilder:
       image:
-        repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/library/openjdk
+        repository: dockerregistry.hosting.kitkube.dk/dockerhub/library/openjdk
       resources:
         limits:
           cpu: 250m

@@ -5,7 +5,7 @@ service:
     enabled: false
 
   image:
-    repository: dockerregistry.t0.hosting.kitkube.dk/plsp/plspxdsadapter/xdsregistry
+    repository: dockerregistry.hosting.kitkube.dk/plsp/plspxdsadapter/xdsregistry
 
   imagePullSecrets:
     - name: dockerplsp

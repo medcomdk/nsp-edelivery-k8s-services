@@ -2,7 +2,7 @@ service:
   namespace: edelevery-sdn
 
   image:
-    repository: dockerregistry.t0.hosting.kitkube.dk/plsp/plspxdsadapter/xdsrepository
+    repository: dockerregistry.hosting.kitkube.dk/plsp/plspxdsadapter/xdsrepository
 
   imagePullSecrets:
     - name: dockerplsp

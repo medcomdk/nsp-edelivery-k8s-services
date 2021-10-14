@@ -5,17 +5,18 @@ service:
     enabled: true
     annotations:
       kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 192.168.100.0/24
     hosts:
-      - host: medcom-gateway.edevlicery.dsdn.dk
+      - host: medcom-gateway.edelivery.dsdn.dk
         paths:
           - path:
     tls:
       - hosts:
-          - medcom-gateway.edevlicery.dsdn.dk
-        secretName: star.edevlicery.dsdn.dk
+          - medcom-gateway.edelivery.dsdn.dk
+        secretName: star.edelivery.dsdn.dk
 
   image:
-    repository: dockerregistry.t0.hosting.kitkube.dk/dockerhub/trifork/medcom-gateway
+    repository: dockerregistry.hosting.kitkube.dk/dockerhub/trifork/medcom-gateway
 
 
   deployment:
