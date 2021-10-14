@@ -9,7 +9,7 @@ service:
     hosts:
       - host: medcom-gateway.edelivery.dsdn.dk
         paths:
-          - path:
+          - path: /
     tls:
       - hosts:
           - medcom-gateway.edelivery.dsdn.dk
