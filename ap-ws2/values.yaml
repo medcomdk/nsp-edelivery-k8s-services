@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/domibus
-    tag: "2021-01-05T1500"
+    tag: "1-e82be4f"
 
   serviceAccount:
     create: false
