@@ -6,7 +6,8 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      {{- include "service.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/instance: ap-ws
+      app.kubernetes.io/name: service
   policyTypes:
     - Ingress
     - Egress
@@ -32,11 +33,6 @@ spec:
     - to:
       - ipBlock:
           cidr: 80.198.95.43/32
-      ports:
-        - protocol: TCP
-          port: 80
-        - protocol: TCP
-          port: 443
   ingress:
     - from:
       - namespaceSelector:
