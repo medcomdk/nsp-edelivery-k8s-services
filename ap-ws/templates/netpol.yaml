@@ -34,7 +34,7 @@ spec:
       - ipBlock:
           cidr: 80.198.95.43/32
   ingress:
-    - to:
+    - from:
       - ipBlock:
           cidr: 80.198.95.43/32
     - from:
