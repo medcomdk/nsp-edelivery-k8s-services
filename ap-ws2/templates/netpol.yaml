@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "service.fullname" . }}-netpol
+  namespace: {{ .Values.service.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: ap-ws2
+      app.kubernetes.io/name: service
+  policyTypes:
+    - Ingress
+    - Egress
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            app: mysql
+            release: ap-db2
+        namespaceSelector:
+          matchLabels:
+            name: edelevery-sdn
+      ports:
+        - protocol: TCP
+          port: 3306
+    - to:
+      - namespaceSelector:
+          matchLabels:
+            name: kube-system
+      ports:
+        - protocol: UDP
+          port: 53
+    - to:
+      - ipBlock:
+          cidr: 80.198.95.43/32
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            name: ingress-nginx
+      ports:
+      - protocol: TCP
+        port: {{ .Values.service.deployment.containerPort }}
