@@ -33,6 +33,8 @@ spec:
     - to:
       - ipBlock:
           cidr: 80.198.95.43/32
+      - ipBlock:
+          cidr: 91.102.26.248/32
   ingress:
 #    - from:
 #      - ipBlock:
