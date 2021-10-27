@@ -16,9 +16,9 @@ spec:
           matchLabels:
             app: mysql
             release: ap-db
-          namespaceSelector:
-            matchLabels:
-              name: edelevery-sdn
+        namespaceSelector:
+          matchLabels:
+            name: edelevery-sdn
       ports:
         - protocol: TCP
           port: 3306
