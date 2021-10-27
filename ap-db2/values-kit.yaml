@@ -6,10 +6,10 @@ mysql:
     resources:
       limits:
         cpu: 250m
-        memory: 640Mi
+        memory: 2Gi
       requests:
         cpu: 50m
-        memory: 410Mi
+        memory: 1Gi
     persistence:
       storageClass: longhorn
 
