@@ -35,10 +35,12 @@ spec:
           cidr: 80.198.95.43/32
       - ipBlock:
           cidr: 91.102.26.248/32
+      - ipBlock:
+          cidr: 195.80.240.0/20
   ingress:
-#    - from:
-#      - ipBlock:
-#          cidr: 80.198.95.43/32
+    - from:
+      - ipBlock:
+          cidr: 195.80.240.0/20
     - from:
       - namespaceSelector:
           matchLabels:
