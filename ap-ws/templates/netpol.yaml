@@ -47,11 +47,11 @@ spec:
         # SDN
       - ipBlock:
           cidr: 195.80.240.0/20
-        ports:
-          - protocol: TCP
-            port: 80
-          - protocol: TCP
-            port: 443
+      ports:
+        - protocol: TCP
+          port: 80
+        - protocol: TCP
+          port: 443
   ingress:
     - from:
       - namespaceSelector:
