@@ -31,16 +31,33 @@ spec:
         - protocol: UDP
           port: 53
     - to:
+        # DIGST/NetCompany
       - ipBlock:
           cidr: 80.198.95.43/32
+        ports:
+          - protocol: TCP
+            port: 80
+        # Cert revoke list
       - ipBlock:
           cidr: 91.102.26.248/32
+        ports:
+          - protocol: TCP
+            port: 80
+        #  http://ehealt-trackandtrace-pilot.azurewebsites.net/api/v1/Track
+      - ipBlock:
+          cidr: 40.127.192.244/32
+          ports:
+            - protocol: TCP
+              port: 80
+        # SDN
       - ipBlock:
           cidr: 195.80.240.0/20
+        ports:
+          - protocol: TCP
+            port: 80
+          - protocol: TCP
+            port: 443
   ingress:
-    - from:
-      - ipBlock:
-          cidr: 195.80.240.0/20
     - from:
       - namespaceSelector:
           matchLabels:
