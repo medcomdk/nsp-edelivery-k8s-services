@@ -26,7 +26,7 @@ mysql:
       enabled: true
       storageClass: "applications"
       size: "1Gi"
-      mountPath: "/var/lib/mysql"
+#      mountPath: "/var/lib/mysql"
   existingSecret: "ap-db-secret"
   db:
     user: "ap"
