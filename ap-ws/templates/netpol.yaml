@@ -47,6 +47,7 @@ spec:
         # SDN
       - ipBlock:
           cidr: 195.80.240.0/20
+    - to:
       - ipBlock:
           cidr: 192.168.100.0/24
       ports:
