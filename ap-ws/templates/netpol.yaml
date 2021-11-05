@@ -34,6 +34,12 @@ spec:
         # DIGST/NetCompany
       - ipBlock:
           cidr: 80.198.95.43/32
+      ports:
+        - protocol: TCP
+          port: 80
+        - protocol: TCP
+          port: 8080
+    - to:
         # Cert revoke list
       - ipBlock:
           cidr: 91.102.26.248/32
