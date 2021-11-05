@@ -50,6 +50,9 @@ spec:
     - to:
       - ipBlock:
           cidr: 192.168.100.0/24
+        # crl.oces.certifikat.dk
+      - ipBlock:
+          cidr: 91.102.26.248/32
       ports:
         - protocol: TCP
           port: 80
