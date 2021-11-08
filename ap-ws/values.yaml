@@ -60,7 +60,7 @@ service:
   extraConfigMap:
     setenv.sh: |
         #!/bin/sh
-        # Set CLASSPATH to include $CATALINA_HOME/domibus
+        # Set CLASSPATH to include $CATALINA_HOME/domibus 
         # where the domibus 'domibus.config.properties’ is located
         export CLASSPATH=$CATALINA_HOME/domibus
         export CATALINA_TMPDIR=$CATALINA_HOME/tmp
