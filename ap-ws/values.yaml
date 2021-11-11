@@ -17,8 +17,8 @@ service:
         secretName: ap-dds.nsptest.medcom.dk
 
   image:
-    repository: trifork/domibus-4.1.6-clean
-    tag: "1-cb8de47"
+    repository: localhost:30500/ap_ws
+    tag: "2"
 
   serviceAccount:
     create: false
