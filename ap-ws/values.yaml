@@ -65,7 +65,7 @@ service:
         export CLASSPATH=$CATALINA_HOME/domibus
         export CATALINA_TMPDIR=$CATALINA_HOME/tmp
         export JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Xms128m -Xmx2048m "
-        export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus"
+        export JAVA_OPTS="$JAVA_OPTS -Ddomibus.config.location=$CATALINA_HOME/domibus -Ddb.host=ap-db"
         echo "Customizing domibus property file :-)"
         sed -i 's/ap_db_1/ap-db/g' /usr/local/tomcat/domibus/domibus.properties
         sed -ir 's/^[#]*\s*domibus.security.keystore.location=.*/domibus.security.keystore.location=\/domibusconfig\/domibus.jks/' /usr/local/tomcat/domibus/domibus.properties 
