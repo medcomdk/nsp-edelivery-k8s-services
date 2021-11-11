@@ -17,7 +17,7 @@ service:
         secretName: ap-dds.nsptest.medcom.dk
 
   image:
-    repository: trifork/domibus-1.4.6-clean
+    repository: trifork/domibus-4.1.6-clean
     tag: "1-cb8de47"
 
   serviceAccount:
