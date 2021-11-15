@@ -12,7 +12,6 @@ mysql:
       storageClass: "applications"
       size: "10Gi"
       mountPath: "/var/lib/mysql"
-  existingSecret: "ap-db-secret"
   db:
     user: "ap"
     name: "domibus_schema"
