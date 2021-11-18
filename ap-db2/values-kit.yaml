@@ -1,7 +1,7 @@
 mysql:
   namespace: edelevery-sdn
   image:
-    repository: dockerregistry.hosting.kitkube.dk/dockerhub/trifork/domibus-mysql
+    repository: dockerregistry.hosting.kitkube.dk/dockerhub/trifork/domibus-mysql-4.2.5
   master:
     resources:
       limits:
