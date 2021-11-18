@@ -15,7 +15,7 @@ service:
         secretName: star.edelivery.dsdn.dk
 
   image:
-    repository: dockerregistry.hosting.kitkube.dk/dockerhub/trifork/domibus
+    repository: dockerregistry.hosting.kitkube.dk/dockerhub/trifork/domibus-4.2.5-jms
 
   initContainers:
     keystorebuilder:
