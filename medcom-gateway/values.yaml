@@ -50,7 +50,7 @@ service:
       GATEWAY_DDSRECIPIENT:
         value: "0088:9999999999906"
       GATEWAY_DUMMY:
-        value: "43"
+        value: "42"
 
       TRACKING_URL:
         value: "http://ehealt-trackandtrace-pilot.azurewebsites.net"
