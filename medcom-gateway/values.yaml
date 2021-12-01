@@ -107,3 +107,4 @@ service:
           group: cert-manager.io
         dnsNames:
           - medcom-gateway.nsptest.medcom.dk
+
