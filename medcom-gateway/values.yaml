@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/medcom-gateway
-    tag: "0.0.6-SNAPSHOT-1ebf055"
+    tag: "0.0.6-SNAPSHOT-412c951"
 
   serviceAccount:
     create: false
@@ -71,7 +71,7 @@ service:
         value: "jdbc:mariadb://medcom-gateway-db-mariadb:3306/medcomgateway"
 
       DDS_REGISTRYURL:
-        value: "http://openxds-registry/axis2/services/xdsregistryb"
+        value: "http://dds-nsp.edelivery.dsdn.dk/axis2/services/xdsregistryb"
       DDS_REPOSITORYUNIQUEID:
         value: "2.25.221705058086636180830704676615260644011"
       DDS_HOMECOMMUNITYID:
@@ -80,7 +80,11 @@ service:
         value: "false"
 
       NAS_URL:
-        value: "https://nas2-nsp.nsptest.medcom.dk/notificationbroker/service"
+        value: "https://nas2-nsp.edelivery.dsdn.dk/notificationbroker/service"
+      NAS_CONNECTTIMEOUTSECONDS:
+        value: 30
+      NAS_READTIMEOUTSECONDS:
+        value: 30
 
       CRA_DB_HOST:
         value: "cradb"
