@@ -1,0 +1,72 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "service.fullname" . }}-netpol
+  namespace: {{ .Values.service.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: ap-ws
+      app.kubernetes.io/name: service
+  policyTypes:
+    - Ingress
+    - Egress
+  egress:
+    - to:
+      - namespaceSelector:
+          matchLabels:
+            name: edelevery-sdn
+    - to:
+      - namespaceSelector:
+          matchLabels:
+            name: kube-system
+      ports:
+        - protocol: UDP
+          port: 53
+    - to:
+        # ehealt-trackandtrace-pilot.azurewebsites.net
+      - ipBlock:
+          cidr: 40.127.192.244/32
+      ports:
+        - protocol: TCP
+          port: 80
+    - to:
+        # nas2-nsp.nsptest.medcom.dk
+      - ipBlock:
+          cidr: 80.197.59.52/32
+      ports:
+        - protocol: TCP
+          port: 443
+    - to:
+#        # Cert revoke list
+#      - ipBlock:
+#          cidr: 91.102.26.248/32
+        #  http://ehealt-trackandtrace-pilot.azurewebsites.net/api/v1/Track
+      - ipBlock:
+          cidr: 40.127.192.244/32
+      ports:
+        - protocol: TCP
+          port: 80
+    - to:
+        # SDN
+      - ipBlock:
+          cidr: 195.80.240.0/20
+    - to:
+      - ipBlock:
+          cidr: 192.168.100.0/24
+#        # crl.oces.certifikat.dk
+#      - ipBlock:
+#          cidr: 91.102.26.248/32
+      ports:
+        - protocol: TCP
+          port: 80
+        - protocol: TCP
+          port: 443
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            name: ingress-nginx
+      ports:
+      - protocol: TCP
+        port: {{ .Values.service.deployment.containerPort }}
