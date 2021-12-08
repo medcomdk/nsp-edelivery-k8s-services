@@ -17,8 +17,8 @@ service:
         secretName: ap-gateway.nsptest.medcom.dk
 
   image:
-    repository: trifork/domibus
-    tag: "1-a1dff25"
+    repository: trifork/domibus-4.2.5-jms
+    tag: "1-88e94e5"
 
   serviceAccount:
     create: false

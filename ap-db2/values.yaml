@@ -2,8 +2,8 @@ mysql:
   namespace: "nsptest"
   fullnameOverride: "ap-db2"
   image:
-    repository: "trifork/domibus-mysql"
-    tag: "4.1.6"
+    repository: "trifork/domibus-mysql-4.2.5"
+    tag: "1-7744be8"
   replication:
     enabled: false
   master:
