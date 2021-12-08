@@ -31,13 +31,6 @@ spec:
         - protocol: TCP
           port: 80
     - to:
-        # nas2-nsp.nsptest.medcom.dk
-      - ipBlock:
-          cidr: 80.197.59.52/32
-      ports:
-        - protocol: TCP
-          port: 443
-    - to:
 #        # Cert revoke list
 #      - ipBlock:
 #          cidr: 91.102.26.248/32
