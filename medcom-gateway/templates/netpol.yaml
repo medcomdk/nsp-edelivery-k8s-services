@@ -6,8 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/instance: ap-ws
-      app.kubernetes.io/name: service
+      app.kubernetes.io/instance: medcom-gateway
   policyTypes:
     - Ingress
     - Egress
