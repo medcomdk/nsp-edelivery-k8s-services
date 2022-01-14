@@ -24,9 +24,9 @@ spec:
         - protocol: TCP
           port: 3306
     - to:
-      - namespaceSelector:
-          matchLabels:
-            name: kube-system
+      # nodeLocal DNS
+      - ipBlock:
+          cidr: 169.254.20.10/32
       ports:
         - protocol: UDP
           port: 53
