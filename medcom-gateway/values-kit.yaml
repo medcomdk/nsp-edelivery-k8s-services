@@ -19,6 +19,12 @@ service:
 
 
   deployment:
+    hostAliases:
+      192.168.100.2:
+        - "ap-dds.edelivery.dsdn.dk"
+        - "ap-gateway.edelivery.dsdn.dk"
+        - "dds-nsp.edelivery.dsdn.dk"
+        - "nas2-nsp.edelivery.dsdn.dk"
     resources:
       limits:
         cpu: 500m
