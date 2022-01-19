@@ -71,7 +71,7 @@ service:
         value: "jdbc:mariadb://medcom-gateway-db-mariadb:3306/medcomgateway"
 
       DDS_REGISTRYURL:
-        value: "http://dds-nsp.edelivery.dsdn.dk/ddsregistry/axis2/services/xdsregistryb"
+        value: "http://ddsregistry:8080/ddsregistry/axis2/services/xdsregistryb"
       DDS_REPOSITORYUNIQUEID:
         value: "2.25.221705058086636180830704676615260644011"
       DDS_HOMECOMMUNITYID:
