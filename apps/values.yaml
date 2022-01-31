@@ -22,18 +22,6 @@ argoApps:
       warnignored: true
 
   applications:
-    plsp-registryadapter:
-      path: plsp-registryadapter
-      targetRevision: main
-      valueFiles:
-        - values.yaml
-
-    plsp-repositoryadapter:
-      path: plsp-repositoryadapter
-      targetRevision: main
-      valueFiles:
-        - values.yaml
-
     ap-db:
       path: ap-db
       targetRevision: main
@@ -69,7 +57,6 @@ argoApps:
       targetRevision: main
       valueFiles:
         - values.yaml
-
 
     activemq:
       path: mq

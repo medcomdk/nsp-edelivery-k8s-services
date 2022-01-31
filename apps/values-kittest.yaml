@@ -31,3 +31,15 @@ argoApps:
         - values.yaml
         - values-kit.yaml
         - values-kittest.yaml
+
+    plsp-registryadapter:
+      path: plsp-registryadapter
+      targetRevision: main
+      valueFiles:
+        - values.yaml
+
+    plsp-repositoryadapter:
+      path: plsp-repositoryadapter
+      targetRevision: main
+      valueFiles:
+        - values.yaml
