@@ -22,20 +22,6 @@ argoApps:
       valueFiles:
         - values-kit.yaml
 
-    plsp-registryadapter:
-      path: plsp-registryadapter
-      targetRevision: main
-      valueFiles:
-        - values.yaml
-        - values-kit.yaml
-
-    plsp-repositoryadapter:
-      path: plsp-repositoryadapter
-      targetRevision: main
-      valueFiles:
-        - values.yaml
-        - values-kit.yaml
-
     ap-db:
       path: ap-db
       targetRevision: main
