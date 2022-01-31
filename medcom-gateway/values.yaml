@@ -46,7 +46,7 @@ service:
       GATEWAY_NAME:
         value: "medcom-edelivery-gateway (funktionscertifikat)"
       GATEWAY_ORIGINALSENDER:
-        value: "0088:9999999999906"
+        value: "0088:5790002515798"
       GATEWAY_DDSRECIPIENT:
         value: "0088:9999999999906"
       GATEWAY_DUMMY:
