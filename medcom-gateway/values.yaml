@@ -18,7 +18,7 @@ service:
 
   image:
     repository: trifork/medcom-gateway
-    tag: "0.0.6-SNAPSHOT-e96033b"
+    tag: "0.0.6-SNAPSHOT-d8438d6"
 
   serviceAccount:
     create: false
